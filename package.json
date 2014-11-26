@@ -4,12 +4,26 @@
   "description": "A stream that converts all input into pig latin",
   "author": "Ray John Alovera <rakista112@gmail.com>",
   "main": "index.js",
-  "keywords": ["pig", "latin", "piglatin", "translate", "stream"],
+  "keywords": [
+    "pig",
+    "latin",
+    "piglatin",
+    "translate",
+    "stream"
+  ],
+  "scripts": {
+    "test": "mocha test"
+  },
   "dependencies": {
     "pig-latin": "^1.0.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/rakista112/pig-stream.git"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1",
+    "through": "^2.3.6"
   }
 }
