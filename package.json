@@ -1,0 +1,11 @@
+{
+  "name": "pig-stream",
+  "version": "1.0",
+  "description": "A stream that converts all input into pig latin",
+  "author": "Ray John Alovera <rakista112@gmail.com>",
+  "main": "index.js",
+  "keywords": ["pig", "latin", "piglatin", "translate", "stream"],
+  "dependencies": {
+    "pig-latin": "^1.0.1"
+  } 	
+}
