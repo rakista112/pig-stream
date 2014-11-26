@@ -7,5 +7,9 @@
   "keywords": ["pig", "latin", "piglatin", "translate", "stream"],
   "dependencies": {
     "pig-latin": "^1.0.1"
-  } 	
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakista112/pig-stream.git"
+  }
 }
