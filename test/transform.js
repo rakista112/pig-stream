@@ -33,6 +33,7 @@ describe('Pig Stream', function(){
 	    }, function(data){
 		output = output.trim();
 		output.should.equal(exResult);
+		sstream.close();
 	    }));
 	});
     });
