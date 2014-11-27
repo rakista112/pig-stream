@@ -36,5 +36,19 @@ describe('Pig Stream', function(){
 		sstream.close();
 	    }));
 	});
+
+	it('should capitalize the first words too', function(){
+	    var sstream = fs.createReadStream('./test/assets/capitalize.txt');
+	    var pstream = new PigStream({capitalize: true});
+	    var exResult = 'Ohway ywhay otherbay...';
+	    var output = '';
+	    sstream.pipe(pstream).pipe(through(function(data){
+		output += data.toString();
+	    }, function(){
+		output = output.trim();
+		output.should.equal(exResult);
+		sstream.close();
+	    }));
+	});
     });
 });
