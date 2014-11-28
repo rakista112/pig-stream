@@ -9,11 +9,12 @@ describe('Pig Stream', function(){
 
     describe('transform', function(){
 	it('should transform input to pig latin', function(){
-	    var sstream = fs.createReadStream('./test/assets/test.txt');
+	    var input = 'why not?';
 	    var pstream = new PigStream();
 	    var exResult = 'ywhay otnay?';
 	    var output = '';
-	    sstream.pipe(pstream).pipe(through(function(data){
+
+	    pstream.pipe(through(function(data){
 		output += data.toString();
 	    }, function(data){
 		output = output.trim();
@@ -21,34 +22,40 @@ describe('Pig Stream', function(){
 		sstream.close();
 	    }));
 
+	    pstream.write(input);
 	});
 
 	it('should allow changing vowel endings if word starts with vowel', function(){
-	    var sstream = fs.createReadStream('./test/assets/vowel.txt');
+	    var input = 'i am anne.';
 	    var pstream = new PigStream({vowelEnding: 'er'});
 	    var exResult = 'ier amer anneer.';
 	    var output = '';
-	    sstream.pipe(pstream).pipe(through(function(data){
+
+	    pstream.pipe(through(function(data){
 		output += data.toString();
 	    }, function(data){
 		output = output.trim();
 		output.should.equal(exResult);
 		sstream.close();
 	    }));
+
+	    pstream.write(input);
 	});
 
 	it('should capitalize the first words too', function(){
-	    var sstream = fs.createReadStream('./test/assets/capitalize.txt');
+	    var input = 'oh why bother...';
 	    var pstream = new PigStream({capitalize: true});
 	    var exResult = 'Ohway ywhay otherbay...';
 	    var output = '';
-	    sstream.pipe(pstream).pipe(through(function(data){
+	    pstream.pipe(through(function(data){
 		output += data.toString();
 	    }, function(){
 		output = output.trim();
 		output.should.equal(exResult);
 		sstream.close();
 	    }));
+
+	    pstream.write(input);
 	});
     });
 });
